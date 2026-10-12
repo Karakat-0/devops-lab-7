@@ -1,0 +1,17 @@
+name: Docker Lab 7
+on:
+  push:
+    branches:["main"]
+  workflow_dispatch:
+jobs:
+  docker-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t docker-lab7 .
+
+      - name: Run Docker container 
+        run: docker run --rm docker-lab7
